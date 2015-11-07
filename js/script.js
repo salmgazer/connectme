@@ -1,4 +1,5 @@
-var strUrl = "controller/controller.php?cmd=";
+var ctrUrl = "controller/controller.php?cmd=";
+
 function sendRequest(u) {
     // Send request to server
     //u a url as a string
@@ -11,12 +12,31 @@ function sendRequest(u) {
 
 //get all posts
 function getAllPosts(){
+    var strUrl = ctrUrl+"1";
+    var objResult = sendRequest(strUrl);
+    if(objResult.result == 0){
+        alert("No results");
+        return;
+    }
+    alert("Yes, some posts");
+    displayPosts(objResult.posts);
+}
 
+function displayPosts(posts){
+    for(var i = 0; i < posts.length; i++){
+        //display here
+    }
 }
 
 //search all posts
 function searchPosts(){
-
+    var strUrl = ctrUrl+"2";
+    objResult = sendRequest(strUrl);
+    if(objResult.result == 0){
+        alert("no such posts");
+        return;
+    }
+    displayPosts(objResult.posts);
 }
 
 function getPostCategories(){

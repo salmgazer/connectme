@@ -13,40 +13,43 @@ class Post extends adb {
 
 
 /**
- * function to add a post
- */
+* function to add a post
+*/
 function add_post($user_id, $content, $category) {
- $sql= "insert into post set user_id =$user_id content='$content' category='$category'";
-     return $this->query($sql);
-  }
+  $sql= "INSERT INTO post (user_id, content, category) VALUES ($user_id, '$content', '$category'";
+  return $this->query($sql);
+}
 
 /**
-* function to get post from a specific user
-*
+* function to get posts from a specific user
 */
 function get_user_post($user_id){
-        $sql = "select  * from post where id=$user_id";
-        return $this->query($sql);
-    }
-}
-/**
-function to get all post from post
-*
-*/
- function get_all_post(){
-     $sql= "select * from post";
-     return $this->query($sql);
- }
-function get_post_by_category($category){
-    $sql ="select * from post where category='$category'"
-        return $this->query($sql);
+  $sql = "SELECT * FROM post WHERE user_id=$user_id";
+  return $this->query($sql);
 }
 
 /**
-function to get post from a specific user
+* function to get all posts
 */
-function get_recent_post($num){
-    $sql="select * from post limit $num order by post_date desc"
-    return $this->query($sql);
+ function get_all_post(){
+   $sql= "SELECT * FROM post";
+   return $this->query($sql);
 }
- ?>
+
+/*
+* function to get all post in a category
+*/
+function get_post_by_category($category){
+  $sql = "SELECT * FROM post WHERE category='$category'";
+  return $this->query($sql);
+}
+
+/*
+ * function to get a given amount of recent post
+ */
+function get_recent_post($num){
+  $sql = "SELECT * FROM post ORDER BY post_date DESC LIMIT $num";
+  return $this->query($sql);
+}
+
+?>

@@ -6,12 +6,6 @@ include_once("adb.php");
  */
 class Post extends adb {
 
-  function __construct(argument)
-  {
-    # code...
-  }
-
-
 /**
 * function to add a post
 */
@@ -50,6 +44,7 @@ function get_post_by_category($category){
 function get_recent_post($num){
   $sql = "SELECT * FROM post ORDER BY post_date DESC LIMIT $num";
   return $this->query($sql);
+}
 }
 
 ?>

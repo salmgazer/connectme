@@ -1,5 +1,9 @@
 <?php
 // Recieving command
+ if(!isset($_REQUEST['cmd'])){
+  echo '{"result": 0, "message": "Unknown command"}';
+  return;
+ }
   $cmd = $_REQUEST['cmd'];
 
 // Switch statement to handle different type of commands
@@ -43,7 +47,7 @@
  * function add a post
  */
 function add_post($user_id,$content,$category){
-  include_once("post.php");
+  include_once("../models/post.php");
   $post = new Post();
   // if post failed give error message
   if(!$post->add_post($user_id,$content,$category)){
@@ -58,7 +62,7 @@ function add_post($user_id,$content,$category){
  * function to get post from a given user
  */
 function get_user_post($user_id){
-  include_once("post.php");
+  include_once("../models/post.php");
   $post = new Post();
   $post->get_user_post($user_id);
   $row = $post->fetch();
@@ -84,7 +88,7 @@ function get_user_post($user_id){
  * function to get all post
  */
 function get_all_post(){
-  include_once("post.php");
+  include_once("../models/post.php");
   $post = new Post();
   $post->get_all_post();
   $row = $post->fetch();
@@ -94,7 +98,7 @@ function get_all_post(){
       return;
     }
     // send data in json format
-    echo '{"result":1,"post["';
+    echo '{"result":1,"posts": [';
     while($row) {
       echo json_encode($row);
       $row = $post->fetch();
@@ -110,7 +114,7 @@ function get_all_post(){
  * function to get the recent number of post
 */
 function get_recent_post($num){
-  include_once("post.php");
+  include_once("../model/post.php");
   $post = new Post();
   $post->get_recent_post($num);
   $row = $post->fetch();

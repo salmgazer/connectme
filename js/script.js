@@ -12,7 +12,8 @@ function sendRequest(u) {
 
 //get all posts
 function getAllPosts(){
-    var strUrl = ctrUrl+"1";
+    alert("confirm");
+    var strUrl = ctrUrl+"3";
     var objResult = sendRequest(strUrl);
     if(objResult.result == 0){
         alert("No results");
@@ -23,9 +24,11 @@ function getAllPosts(){
 }
 
 function displayPosts(posts){
+    var myposts = "";
     for(var i = 0; i < posts.length; i++){
-        //display here
+        myposts += '<div class="row"><div class="card white"><div class="card-content black-text"><span class="card-title black-text"></span><p>'+posts[0]['content']+'</p></div><div class="card-action"><a href="#">This is a link</a><a href="#">This is a link</a></div></div></div>';
     }
+    document.getElementById("postsArea").innerHTML = myposts;
 }
 
 //search all posts

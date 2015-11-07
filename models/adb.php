@@ -3,7 +3,7 @@
 /**
  * description: A root class for all manage classes. This class communicates with DB
  */
-define("DB_HOST", 'localhost');
+define("DB_HOST", 'mysql.usho');
 define("DB_NAME", 'csashesi_ali-njie');
 define("DB_PORT", 3306);
 define("DB_USER", "csashesi_an16");

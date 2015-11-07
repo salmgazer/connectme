@@ -3,11 +3,11 @@
 /**
  * description: A root class for all manage classes. This class communicates with DB
  */
-define("DB_HOST", 'mysql.usho');
-define("DB_NAME", 'csashesi_ali-njie');
+define("DB_HOST", 'mysql.ushostfull.com');
+define("DB_NAME", 'u363977193_con');
 define("DB_PORT", 3306);
-define("DB_USER", "csashesi_an16");
-define("DB_PWORD", "db!WO!LR");
+define("DB_USER", "u363977193_root");
+define("DB_PWORD", "connectme");
 define("LOG_LEVEL_SEC", 0);
 define("LOG_LEVEL_DB_FAIL", 0);
 define("PAGE_SIZE", 10);
